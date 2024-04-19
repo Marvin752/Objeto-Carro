@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carrito.Carro
 {
-    internal class Carro
+    public class Carro
     {
         public bool bocina { get; set; }
         public bool closh {  get; set; }
@@ -83,13 +83,16 @@ namespace Carrito.Carro
 
         public void Encenderluces()
         {
-            if (luces)
+            if (Encendido)
             {
-                luces = false;
-            }
-            else
-            {
-                luces = true;
+                if (luces)
+                {
+                    luces = false;
+                }
+                else
+                {
+                    luces = true;
+                }
             }
         }
         public int Acelerar()
@@ -98,7 +101,7 @@ namespace Carrito.Carro
             {
                 if (FrenoMano && velocidad_actual < MAXVELOCIDAD)
                 {
-                    velocidad_actual += 5;
+                    velocidad_actual += 2;
                     return velocidad_actual;
                 }
                 else
@@ -144,22 +147,19 @@ namespace Carrito.Carro
                 velocidad_actual -= desa;
             }
         }
-        public int cambio(int cambio)
+        public void cambioArriba()
         {
-            if (Encendido && closh)
+            if (closh && palanca < 5)
             {
-                if (cambio == 6 && palanca < 6 && velocidad_actual >= (palanca) * Revolucion)
-                {
-                    palanca++;
-                    return palanca;
-                }
-                else if (cambio == 7 && palanca > 0)
-                {
-                    palanca--;
-                    return palanca;
-                }
+                palanca++;
             }
-            return palanca;
+        }
+        public void cambioAbajo()
+        {
+            if (closh && palanca > 0)
+            {
+                palanca--;
+            }
         }
         public void bocinar()
         {

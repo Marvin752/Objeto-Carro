@@ -157,10 +157,10 @@ do
                                     Console.ReadKey();
                                     break;
                                 case 6:
-                                    miCarro.cambio(op2);
+                                    miCarro.cambioArriba();
                                     break;
                                 case 7:
-                                    miCarro.cambio(op2);
+                                    miCarro.cambioAbajo();
                                     break;
                                 case 8:
                                     for (int i = 0; i < 3; i++)
