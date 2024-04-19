@@ -8,20 +8,31 @@ namespace WinFormsVehiculo
         {
             InitializeComponent();
             carrito = new Carro("Toyota", 2024, "Rojo", "Juan");
+            buttonAcelerar.Enabled = false;
+            buttonDesacelerar.Enabled = false;
+            buttonLuces.Enabled = false;
+            buttonSubirPalanca.Enabled = false;
+            buttonBajarCambio.Enabled = false;
         }
 
         private void buttonEncendido_Click(object sender, EventArgs e)
         {
             carrito.Encender();
-           if(carrito.Encendido)
+            if (carrito.Encendido)
             {
                 labelEncender.Text = $"Auto: Encendido";
                 labelAcelerar.Text = $"Velocidad actual: {carrito.velocidad_actual} Km/h";
+                buttonAcelerar.Enabled = true;
+                buttonDesacelerar.Enabled = true;
+                buttonLuces.Enabled = true;
             }
-           else
+            else
             {
                 labelEncender.Text = $"Auto: Apagado";
                 labelAcelerar.Text = $"Velocidad actual: {carrito.velocidad_actual} Km/h";
+                buttonAcelerar.Enabled = false;
+                buttonDesacelerar.Enabled = false;
+                buttonLuces.Enabled = false;
             }
         }
 
@@ -34,13 +45,17 @@ namespace WinFormsVehiculo
         private void buttonClosh_Click(object sender, EventArgs e)
         {
             carrito.Chloshar();
-            if(carrito.closh)
+            if (carrito.closh)
             {
                 labelClush.Text = $"Closh: Encendido";
+                buttonSubirPalanca.Enabled = true;
+                buttonBajarCambio.Enabled = true;
             }
             else
             {
                 labelClush.Text = $"Closh: Apagador";
+                buttonSubirPalanca.Enabled = false;
+                buttonBajarCambio.Enabled = false;
             }
         }
 
@@ -53,15 +68,17 @@ namespace WinFormsVehiculo
         private void button1_Click(object sender, EventArgs e)
         {
             carrito.Subirfreno();
-            if(carrito.FrenoMano)
+            if (carrito.FrenoMano)
             {
                 labelFrenoMano.Text = $"Freno de mano: Encendido";
+                labelAcelerar.Text = $"Velocidad actual: {carrito.velocidad_actual} Km/h";
             }
             else
             {
                 labelFrenoMano.Text = $"Freno de mano: Apagado";
+                labelAcelerar.Text = $"Velocidad actual: {carrito.velocidad_actual} Km/h";
             }
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -85,7 +102,7 @@ namespace WinFormsVehiculo
         private void button1_Click_1(object sender, EventArgs e)
         {
             carrito.Encenderluces();
-            if(carrito.luces)
+            if (carrito.luces)
             {
                 labelLuces.Text = $"Luces: Encendidas";
             }
@@ -98,6 +115,11 @@ namespace WinFormsVehiculo
         private void buttonBocina_Click(object sender, EventArgs e)
         {
             System.Media.SystemSounds.Beep.Play();
+        }
+
+        private void labelEncender_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

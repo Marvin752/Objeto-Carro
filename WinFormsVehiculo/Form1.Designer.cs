@@ -52,7 +52,7 @@
             buttonEncendido.Name = "buttonEncendido";
             buttonEncendido.Size = new Size(126, 29);
             buttonEncendido.TabIndex = 0;
-            buttonEncendido.Text = "Encender";
+            buttonEncendido.Text = "Encender ";
             buttonEncendido.UseVisualStyleBackColor = true;
             buttonEncendido.Click += buttonEncendido_Click;
             // 
@@ -65,6 +65,7 @@
             labelEncender.Size = new Size(145, 28);
             labelEncender.TabIndex = 1;
             labelEncender.Text = "Auto: Apagado";
+            labelEncender.Click += labelEncender_Click;
             // 
             // buttonAcelerar
             // 
@@ -228,7 +229,7 @@
             Controls.Add(labelEncender);
             Controls.Add(buttonEncendido);
             Name = "Form1";
-            Text = "Vas a 0 Km/h";
+            Text = "Franshesko";
             ResumeLayout(false);
             PerformLayout();
         }
