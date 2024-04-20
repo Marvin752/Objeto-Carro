@@ -1,4 +1,5 @@
 using Carrito.Carro;
+using System.Windows.Forms;
 namespace WinFormsVehiculo
 {
     public partial class Form1 : Form
@@ -10,9 +11,29 @@ namespace WinFormsVehiculo
             carrito = new Carro("Toyota", 2024, "Rojo", "Juan");
             buttonAcelerar.Enabled = false;
             buttonDesacelerar.Enabled = false;
-            buttonLuces.Enabled = false;
             buttonSubirPalanca.Enabled = false;
             buttonBajarCambio.Enabled = false;
+            this.BackColor = Color.Black;
+            foreach (Control control in Controls)
+            {
+                if (control is Label)
+                {
+                    control.ForeColor = Color.White;
+                }
+                if (control is Button)
+                {
+                    Button boton = (Button) control;
+                    if(boton.Enabled)
+                    {
+                        boton.BackColor = Color.Green;
+                        boton.ForeColor = Color.Cyan;
+                    }
+                    else
+                    {
+                        boton.BackColor = Color.Red;
+                    }
+                }
+            }
         }
 
         private void buttonEncendido_Click(object sender, EventArgs e)
@@ -24,7 +45,22 @@ namespace WinFormsVehiculo
                 labelAcelerar.Text = $"Velocidad actual: {carrito.velocidad_actual} Km/h";
                 buttonAcelerar.Enabled = true;
                 buttonDesacelerar.Enabled = true;
-                buttonLuces.Enabled = true;
+                foreach (Control control in Controls)
+                {
+                    if (control is Button)
+                    {
+                        Button boton = (Button)control;
+                        if (boton.Enabled)
+                        {
+                            boton.BackColor = Color.Green;
+                            boton.ForeColor = Color.Cyan;
+                        }
+                        else
+                        {
+                            boton.BackColor = Color.Red;
+                        }
+                    }
+                }
             }
             else
             {
@@ -32,7 +68,22 @@ namespace WinFormsVehiculo
                 labelAcelerar.Text = $"Velocidad actual: {carrito.velocidad_actual} Km/h";
                 buttonAcelerar.Enabled = false;
                 buttonDesacelerar.Enabled = false;
-                buttonLuces.Enabled = false;
+                foreach (Control control in Controls)
+                {
+                    if (control is Button)
+                    {
+                        Button boton = (Button)control;
+                        if (boton.Enabled)
+                        {
+                            boton.BackColor = Color.Green;
+                            boton.ForeColor = Color.Cyan;
+                        }
+                        else
+                        {
+                            boton.BackColor = Color.Red;
+                        }
+                    }
+                }
             }
         }
 
@@ -50,12 +101,44 @@ namespace WinFormsVehiculo
                 labelClush.Text = $"Closh: Encendido";
                 buttonSubirPalanca.Enabled = true;
                 buttonBajarCambio.Enabled = true;
+                foreach (Control control in Controls)
+                {
+                    if (control is Button)
+                    {
+                        Button boton = (Button)control;
+                        if (boton.Enabled)
+                        {
+                            boton.BackColor = Color.Green;
+                            boton.ForeColor = Color.Cyan;
+                        }
+                        else
+                        {
+                            boton.BackColor = Color.Red;
+                        }
+                    }
+                }
             }
             else
             {
                 labelClush.Text = $"Closh: Apagador";
                 buttonSubirPalanca.Enabled = false;
                 buttonBajarCambio.Enabled = false;
+                foreach (Control control in Controls)
+                {
+                    if (control is Button)
+                    {
+                        Button boton = (Button)control;
+                        if (boton.Enabled)
+                        {
+                            boton.BackColor = Color.Green;
+                            boton.ForeColor = Color.Cyan;
+                        }
+                        else
+                        {
+                            boton.BackColor = Color.Red;
+                        }
+                    }
+                }
             }
         }
 
@@ -105,10 +188,26 @@ namespace WinFormsVehiculo
             if (carrito.luces)
             {
                 labelLuces.Text = $"Luces: Encendidas";
+                this.BackColor = Color.White;
+                foreach (Control control in Controls)
+                {
+                    if (control is Label)
+                    {
+                        control.ForeColor = Color.Black;
+                    }
+                }
             }
             else
             {
                 labelLuces.Text = $"Luces: Apagadas";
+                this.BackColor = Color.Black;
+                foreach (Control control in Controls)
+                {
+                    if (control is Label)
+                    {
+                        control.ForeColor = Color.White;
+                    }
+                }
             }
         }
 

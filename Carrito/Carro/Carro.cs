@@ -83,8 +83,6 @@ namespace Carrito.Carro
 
         public void Encenderluces()
         {
-            if (Encendido)
-            {
                 if (luces)
                 {
                     luces = false;
@@ -93,7 +91,6 @@ namespace Carrito.Carro
                 {
                     luces = true;
                 }
-            }
         }
         public int Acelerar()
         {
